@@ -1,6 +1,6 @@
 {
   "name": "@nugget-dev/code-standards",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "code standards",
   "main": "index.js",
   "scripts": {
@@ -40,5 +40,14 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "^9.1.7",
     "prettier": "^3.4.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NuggetDev-Mx/code-standards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NuggetDev-Mx/code-standards/issues"
+  },
+  "homepage": "https://github.com/NuggetDev-Mx/code-standards#readme"
 }
