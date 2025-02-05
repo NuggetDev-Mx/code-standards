@@ -7,6 +7,10 @@
     "test": "echo \"Warn: no test specified\" && exit 0",
     "commitlint": "commitlint --edit"
   },
+  "bin": {
+    "@nugget-dev:setup-code-standards": "/bin/init-config.js",
+    "@nd:scd": "/bin/init-config.js"
+  },
   "keywords": [
     "eslint"
   ],
