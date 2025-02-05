@@ -1,62 +1,65 @@
-### Automatico
-prettier:
-agregar archivo .prettierrc a nivel root del proyecto
-contenido:
-``"@nugget-dev/code-standards/prettier-rules/.prettierrc.json"``
+# @nugget-dev/code-standards
 
-agregar archivo .prettierignore a nivel root del proyecto
-contenido:
-copy del archivo ``/prettier-rules/.prettierignore``
+Este paquete proporciona una configuración mínima de linting y styling de código, además de convenciones para commits con **Conventional Commits**, **Prettier**, **ESLint**, y **Husky**.
 
-copiar `/commit-rules/commitlint.config.cjs` a la raiz del proyecto
+## 🚀 Instalación
 
-copiar `/editorconfig-rules/.editorconfig` a la raiz del proyecto
-
-agregar paqueteria commitlint & husky
-```
-npm install -D husky
-npm i -D @commitlint/cli @commitlint/config-conventional
+Puedes instalar este paquete en tu proyecto con npm:
+```sh
+npm i -D @nugget-dev/code-standards
 ```
 
-agregar keys `husky` & `lint:fix` & `format:write` desde `/npm-rules/npm-rules.json`
+O ejecutarlo directamente con NPX:
+```sh
+npx @nd:scd
 ```
-npx husky init
-echo "npm run lint:fix && npm run format:write && git add ." >  .husky/pre-commit
-echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
-git add .husky/pre-commit .husky/commit-msg
-npm pkg set scripts.lint:fix="eslint src/"*/**/*.{js,ts,jsx,tsx}" --fix"
-npm pkg set scripts.format:write="npx prettier --write src/"*/**/*.{js,ts,jsx,tsx}""
-```
-
-asi mismo crear el archivo `commitlint.config.js` en la raiz del proyecto
-contenido:
-```
-module.exports = { extends: ['@commitlint/config-conventional'] }
+O bien:
+```sh
+npx @nugget-dev:setup-code-standards
 ```
 
+## 🛠️ Desarrollo Local
 
-### Manual
+Si deseas desarrollar o modificar este paquete localmente, sigue estos pasos:
 
-Agregar el paquete de configuracion eslint a la configuracion del prouyecto
-```js
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
-import { fixupConfigRules } from '@eslint/compat'
-import nuggetDev from '@nugget-dev/code-standards' // import nugget dev standards 
+1. **Clona el repositorio:**
+    ```sh
+    git clone <URL_DEL_REPO>
+    cd code-standards
+    ```
+2. **Publica el paquete con `yalc`**:
+    ```sh
+    yalc publish
+    ```
+3. **En el repositorio donde deseas usarlo:**
+    ```sh
+    yalc add @nugget-dev/code-standards
+    yalc link @nugget-dev/code-standards
+    ```
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+## 📖 Detalles del Script
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname
-})
+El script ejecutado por este paquete realiza los siguientes pasos:
 
-const eslintConfig = [
-    ...nuggetDev.eslintConfig, // add them on top of eslint config, ready for eslint ˆ9
-    ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
+1. **Configura Prettier**:
+    - Agrega el archivo `.prettierrc` con las reglas del estándar.
+    - Copia `.prettierignore` a la raíz del proyecto.
 
-export default eslintConfig;
+2. **Configura Commitlint**:
+    - Copia `commitlint.config.cjs` para seguir el estándar de commits convencionales.
+    - Instala `commitlint` y `husky`.
 
-```
+3. **Configura ESLint**:
+    - Modifica `eslint.config.js` (o sus variantes `mjs`, `cjs`, `ts`, `mts`, `cts`) para agregar las reglas de linting del estándar.
+    - Asegura que las reglas del paquete sean incluidas si no están presentes.
+
+4. **Configura Husky**:
+    - Inicializa Husky si no está presente.
+    - Agrega hooks `pre-commit` y `commit-msg` con validaciones automáticas.
+
+5. **Actualiza `.gitignore`**:
+    - Asegura que `.idea/`, `.yalc/`, `public/`, `yalc.lock` y `package-lock.json` estén ignorados por Git.
+
+## 🏗️ Contribuir
+Si deseas contribuir, abre un issue o haz un pull request con mejoras y correcciones. ¡Tu ayuda es bienvenida! 🎉
+
