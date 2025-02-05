@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "lint:fix": "eslint src/\"*/**/*.{js,ts,jsx,tsx}\" --fix",
+    "format:write": "npx prettier --write src/\"*/**/*.{js,ts,jsx,tsx}\"",
+    "prepare": "husky"
+  }
+}

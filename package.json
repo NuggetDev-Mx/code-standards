@@ -5,15 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Warn: no test specified\" && exit 0",
-    "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
   "keywords": [
     "eslint"
   ],
   "peerDependencies": {
-    "@eslint/compat": "^1.2.5",
-    "eslint": "^9.19.0"
+    "eslint": "^9.19.0",
+    "husky": "^9.1.7"
   },
   "type": "module",
   "author": "NuggetDev",
@@ -21,22 +20,21 @@
   "dependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/compat": "^1.2.5",
     "@eslint/eslintrc": "^3.2.0",
+    "@stylistic/eslint-plugin": "^3.0.1",
     "@tanstack/eslint-plugin-query": "^5.65.0",
+    "eslint": "^9.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-check-file": "^2.8.0",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "prettier": "^3.4.2"
-  },
-  "devDependencies": {
-    "@eslint/compat": "^1.2.5",
-    "eslint": "^9.19.0",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "husky": "^9.1.7"
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2"
   }
 }
